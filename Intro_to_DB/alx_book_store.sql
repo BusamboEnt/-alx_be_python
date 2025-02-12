@@ -1,4 +1,3 @@
--- alx_book_store.sql
 
 -- Drop database if it exists
 DROP DATABASE IF EXISTS alx_book_store;
