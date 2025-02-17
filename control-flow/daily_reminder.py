@@ -20,7 +20,7 @@ def main():
         message += " That requires immediate attention today!"
     
     
-    print("\nReminder:", message)
+    print(f"\nReminder: {message}")
 
 if __name__ == "__main__":
     main()
