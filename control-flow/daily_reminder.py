@@ -1,8 +1,9 @@
 def main():
    
-    task = input("Enter your task: ")
-    priority = input("Priority (high/medium/low): ").lower()
-    time_bound = input("Is it time-bound? (yes/no): ").lower()
+    task = "Finish project report"
+    priority = "high"
+    time_bound = "yes"
+    
     
     match priority:
         case "high":
@@ -14,7 +15,7 @@ def main():
         case _:
             message = "Invalid priority entered. Defaulting to low priority."
     
-   
+    
     if time_bound == "yes":
         message += " That requires immediate attention today!"
     
