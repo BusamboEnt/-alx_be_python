@@ -1,24 +1,22 @@
-def daily_reminder():
-
-  task = input("What is your task for today? ")
-    priority = input("What is the priority of this task (high, medium, low)? ").lower()
-    time_bound = input("Is this task time-bound (yes or no)? ").lower()
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
 match priority:
-        case "high":
-          reminder = f"Your high priority task: '{task}'. "
-        case "medium":
-          reminder = f"Your medium priority task: '{task}'. "
-        case "low":
-          reminder = f"Your low priority task: '{task}'. "
-        case _:
-           reminder = "Invalid priority. Please check your priority."
+    case "high":
+        priority_message = "high priority task"
+    case "medium":
+        priority_message = "medium priority task"
+    case "low":
+        priority_message = "low priority task"
+        reminder_message = f"Note: '{task}' is a {priority_message}. Consider completing it when you have free time."
+    case _:
+        priority_message = "task with undefined priority"
+        reminder_message = f"Reminder: '{task}' is a {priority_message}. Please specify the priority next time."
 
-    if time_bound == "yes":
-        reminder += "That requires immediate attention today!"
-    
-    if "Invalid priority" not in reminder:
-        print(reminder)
+if time_bound == "yes":
+    reminder_message = f"Reminder: '{task}' is a {priority_message} that requires immediate attention today!"
+elif priority != "low":
+    reminder_message = f"Note: '{task}' is a {priority_message}. Consider completing it when you have time."
 
-if __name__ == "__main__":
-    daily_reminder()
+print(reminder_message)
