@@ -1,26 +1,30 @@
-def main():
-    
-    task = input("Enter your task: ")
-    priority = input("Priority (high/medium/low): ").lower()
-    time_bound = input("Is it time-bound? (yes/no): ").lower()
-    
-    
-    match priority:
-        case "high":
-            message = f"'{task}' is a high priority task."
-        case "medium":
-            message = f"'{task}' is a medium priority task. Don't forget to complete it."
-        case "low":
-            message = f"'{task}' is a low priority task. Consider completing it when you have free time."
-        case _:
-            message = "Invalid priority entered. Defaulting to low priority."
-    
-    
-    if time_bound == "yes":
-        message += " That requires immediate attention today!"
-    
-    
-    print(f"\nReminder: {message}")
 
-if __name__ == "__main__":
-    main()
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
+
+# Process the Task Based on Priority and Time Sensitivity
+match priority:
+    case "high":
+        reminder = f"'{task}' is a high priority task."
+        if time_bound == "yes":
+            reminder += " It requires immediate attention today!"
+        else:
+            reminder += " Please complete it soon."
+    case "medium":
+        reminder = f"'{task}' is a medium priority task."
+        if time_bound == "yes":
+            reminder += " It should be addressed today."
+        else:
+            reminder += " Consider completing it when you have time."
+    case "low":
+        reminder = f"'{task}' is a low priority task."
+        if time_bound == "yes":
+            reminder += " You might want to get it done today."
+        else:
+            reminder += " Consider completing it when you have free time."
+    case _:
+        reminder = "Invalid priority level. Please enter high, medium, or low."
+
+# Provide a Customized Reminder
+print(reminder)
